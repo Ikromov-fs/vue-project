@@ -1,17 +1,18 @@
 <template >
     <section class="section">
+        <appModal v-model="dialog">
+            <div class="col-md-12 mx-auto">
+                <h2 class="text-center my-4">Select your roles</h2>
+                <select class="form-control" v-model="roles">
+                    <option value="" hidden disabled>Select your role</option>
+                    <option class="form-control" v-for="item in $store?.state?.me?.roles" :value="item" :key="item.id">{{
+                        item }}
+                    </option>
+                </select>
+                <button class="btn btn-primary mt-3 w-100" @click="saveRole">save</button>
+            </div>
+        </appModal>
         <div class="section__div mx-4">
-            <appModal v-model="dialog">
-                <div class="mx-auto">
-                    <h2 class="text-center my-4">Select your roles</h2>
-                    <select class="form-control" v-model="roles">
-                        <option class="form-control" value="" hidden disabled>Select your role</option>
-                        <option class="form-control" v-for="item in $store?.state?.me?.roles" :value="item">{{ item }}
-                        </option>
-                    </select>
-                    <button class="btn btn-primary mt-2" @click="saveRole">save</button>
-                </div>
-            </appModal>
             <div>
                 <img :src="$store?.state?.me?.image" alt="user">
             </div>

@@ -27,7 +27,6 @@ const sidebarGlobal = ref([
     { path: '/delivered-warhen', name: 'Delivered', child: '', icon: 'fa-solid fa-building-circle-arrow-right' },
     { path: '/returned-warhen', name: 'Returned', child: '', icon: 'fa-solid fa-building-circle-exclamation' },
     { path: '/suppliers', name: 'Suppliers', child: '', icon: 'fa-solid fa-truck' },
-    // { path: '/input-invoice', name: '', child: '', icon: '' },
 ])
 
 onMounted(() => {
@@ -42,20 +41,20 @@ $bg-color: #F2F7FF;
     height: 100vh;
     display: flex;
 
-    %warehouse__global {
-        height: 100%;
-        background-color: $bg-color;
-        transition: all 0.4s linear;
-    }
+    // %warehouse__sidebar {
+    //     height: 100%;
+    //     background-color: $bg-color;
+    //     transition: all 0.4s linear;
+    // }
 
     .warehouse__main1 {
         width: calc(100% - 300px);
-        @extend %warehouse__global
+        @extend %warehouse__sidebar
     }
 
     .warehouse__main {
         width: calc(100% - 53px);
-        @extend %warehouse__global
+        @extend %warehouse__sidebar
     }
 
     .warehouse__sidebar1 {
@@ -73,21 +72,22 @@ $bg-color: #F2F7FF;
         top: 0;
     }
 
-    @media screen and (max-width: 1024px) {
-        %warehouse__global2 {
-            height: 100%;
-            background-color: $bg-color;
-            transition: all 0.4s linear;
-        }
+}
 
-        .warehouse__sidebar {
-            width: 62px !important;
-        }
+@media screen and (max-width: 1024px) {
+    %warehouse__sidebar {
+        height: 100%;
+        background-color: $bg-color;
+        transition: all 0.4s linear;
+    }
 
-        .warehouse__main1 {
-            width: calc(100% - 53px) !important;
-            @extend %warehouse__global2
-        }
+    .warehouse__sidebar {
+        width: 62px !important;
+    }
+
+    .warehouse__main1 {
+        width: calc(100% - 53px) !important;
+        @extend %warehouse__sidebar
     }
 }
 </style>

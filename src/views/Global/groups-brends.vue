@@ -1,15 +1,5 @@
 <template>
     <section>
-        <appModal v-model="dialog">
-            <div class="text-center">
-                <h2>Are you sure you want to deletes ?</h2>
-                <div class="mx-auto">
-                    <button class="btn btn-info mx-4 my-2 px-5" @click="dialog = false">cancel</button>
-                    <button class="btn btn-danger mx-4 my-2 px-5" @click="end__Deleted">delete</button>
-                </div>
-            </div>
-        </appModal>
-        <addBrend_group ref="open_brand_group"></addBrend_group>
         <button class="back" @click="back"><i class="fa-solid fa-arrow-left"></i>Back</button>
         <section class="product__lists-table">
             <div>
@@ -32,6 +22,16 @@
             </div>
         </section>
     </section>
+    <appModal v-model="dialog">
+        <div class="text-center">
+            <h2>Are you sure you want to deletes ?</h2>
+            <div class="mx-auto">
+                <button class="btn btn-info mx-4 my-2 px-5" @click="dialog = false">cancel</button>
+                <button class="btn btn-danger mx-4 my-2 px-5" @click="end__Deleted">delete</button>
+            </div>
+        </div>
+    </appModal>
+    <addBrend_group ref="open_brand_group"></addBrend_group>
 </template>
 <script setup>
 import { ref, onMounted } from 'vue';

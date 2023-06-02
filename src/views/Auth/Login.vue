@@ -1,15 +1,5 @@
 <template>
     <div class="wropper">
-        <appModal v-model="dialog" :width="'50%'">
-            <div class="Login__roles col-md-6 mx-auto">
-                <h2 class="text-center my-4">Select your roles</h2>
-                <select class="form-control" v-model="roles.selected_role">
-                    <option value="" hidden disabled>Select your role</option>
-                    <option class="form-control" v-for="item in roles.role" :value="item" :key="item.id">{{ item }}</option>
-                </select>
-                <button class="btn btn-primary mt-2" @click="saveRoule">save</button>
-            </div>
-        </appModal>
         <div class="wropper__div">
             <div class="wropper__div__card col-md-6 p-5 rounded-3">
                 <h3 class="text-center">System entrance</h3>
@@ -37,6 +27,16 @@
             </div>
         </div>
     </div>
+    <appModal v-model="dialog" :width="'100%'">
+        <div class="Login__roles col-md-12 mx-auto">
+            <h2 class="text-center my-4">Select your roles</h2>
+            <select class="form-control" v-model="roles.selected_role">
+                <option value="" hidden disabled>Select your role</option>
+                <option class="form-control" v-for="item in roles.role" :value="item" :key="item.id">{{ item }}</option>
+            </select>
+            <button class="btn btn-primary mt-3 w-100" @click="saveRoule">save</button>
+        </div>
+    </appModal>
 </template>
 
 <script setup>
